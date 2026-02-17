@@ -1,0 +1,43 @@
+{
+  "name": "maztermind",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000m\u0000a\u0000z\u0000t\u0000e\u0000r\u0000m\u0000i\u0000n\u0000d\u0000\r\u0000 \u0000#\u0000 \u0000m\u0000a\u0000z\u0000t\u0000e\u0000r\u0000m\u0000i\u0000n\u0000d\u0000\r\u0000 \u0000#\u0000 \u0000m\u0000a\u0000z\u0000t\u0000e\u0000r\u0000m\u0000i\u0000n\u0000d\u0000\r\u0000 \u0000",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steven-baovo/maztermind.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/steven-baovo/maztermind/issues"
+  },
+  "homepage": "https://github.com/steven-baovo/maztermind#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongodb": "^7.1.0",
+    "mongoose": "^9.2.1"
+  }
+}
+
+{
+  "name": "quiz-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "cors": "^2.8.5"
+  }
+}
+

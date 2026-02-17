@@ -1,13 +1,3 @@
-const mongoose = require("mongoose");
-
-mongoose.connect("mongodb+srv://stevenbaovo:<db_password>@cluster0.dypwgqe.mongodb.net/?appName=Cluster0", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("Kết nối MongoDB thành công"))
-.catch(err => console.error("Lỗi kết nối:", err));
-
-
 const questions = [
   { q: "2 + 2 = ?", options: ["3", "4", "5"], answer: "4" },
   { q: "Thủ đô của Việt Nam?", options: ["Hà Nội", "Đà Nẵng", "TP.HCM"], answer: "Hà Nội" },
@@ -45,6 +35,14 @@ function checkAnswer(option) {
   } else {
     quizDiv.innerHTML = "";
     resultDiv.innerHTML = `<h2>Bạn trả lời đúng ${score}/${questions.length} câu!</h2>`;
+
+    // Gửi điểm lên backend
+    fetch("http://localhost:4000/score", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "Người chơi", score: score })
+    }).then(() => loadLeaderboard());
+
     restartBtn.style.display = "inline-block";
   }
 }
@@ -57,4 +55,21 @@ restartBtn.onclick = () => {
   showQuestion();
 };
 
+// Hàm tải bảng xếp hạng
+function loadLeaderboard() {
+  fetch("http://localhost:4000/scores")
+    .then(res => res.json())
+    .then(scores => {
+      const list = document.getElementById("scoreList");
+      list.innerHTML = "";
+      scores.forEach(s => {
+        const li = document.createElement("li");
+        li.textContent = `${s.name}: ${s.score} điểm`;
+        list.appendChild(li);
+      });
+    });
+}
+
+// Gọi khi web khởi động
+loadLeaderboard();
 showQuestion();
