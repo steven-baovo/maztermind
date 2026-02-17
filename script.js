@@ -57,7 +57,7 @@ restartBtn.onclick = () => {
 
 // Hàm tải bảng xếp hạng
 function loadLeaderboard() {
-  fetch("http://localhost:4000/scores")
+  fetch("https://maztermind.onrender.com")
     .then(res => res.json())
     .then(scores => {
       const list = document.getElementById("scoreList");
