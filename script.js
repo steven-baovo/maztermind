@@ -1,3 +1,13 @@
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb+srv://stevenbaovo:<db_password>@cluster0.dypwgqe.mongodb.net/?appName=Cluster0", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("Kết nối MongoDB thành công"))
+.catch(err => console.error("Lỗi kết nối:", err));
+
+
 const questions = [
   { q: "2 + 2 = ?", options: ["3", "4", "5"], answer: "4" },
   { q: "Thủ đô của Việt Nam?", options: ["Hà Nội", "Đà Nẵng", "TP.HCM"], answer: "Hà Nội" },
